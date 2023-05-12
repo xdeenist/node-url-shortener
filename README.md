@@ -1,5 +1,7 @@
 ## NodeJs url shorter server
 
+express js vs mongoDb
+
 ## Setup Development Machine
 1. Clone the repo
 
