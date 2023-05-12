@@ -11,7 +11,7 @@ module.exports = router
 async function redirect(req, res, next) {
   const alias = req.params.alias;
   const url = await MinifiedUrls.findOne({ alias });
-
+  console.log(`Redirect by alias ${alias}`);
   const views = url.views += 1
   await MinifiedUrls.findOneAndUpdate({_id: url.id}, {$set: {"views": views}});
 
