@@ -1,9 +1,10 @@
 const express = require('express')
 const router = express.Router();
 const {MinifiedUrls} = require('../helpers/db')
+const throttle = require("express-throttle");
 
 // routes
-router.get('/:alias', redirect);
+router.get('/:alias', throttle({ "burst": 5, "period": "1s" }), redirect);
 
 module.exports = router
 

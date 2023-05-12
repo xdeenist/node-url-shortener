@@ -1,9 +1,10 @@
 const express = require('express')
 const router = express.Router();
 const minifyService = require("../services/minify.service")
+const throttle = require("express-throttle");
 
 // routes
-router.post('/create', create);
+router.post('/create', throttle({ "burst": 5, "period": "1s" }), create);
 
 module.exports = router
 
