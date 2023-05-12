@@ -15,5 +15,5 @@ async function redirect(req, res, next) {
   const views = url.views += 1
   await MinifiedUrls.findOneAndUpdate({_id: url.id}, {$set: {"views": views}});
 
-  res.redirect(url ? url.originalUrl : 'google.com');
+  res.status(301).redirect(url ? url.originalUrl : 'google.com');
 }
